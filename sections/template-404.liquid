@@ -1,0 +1,51 @@
+<div class="max-w-md">
+    <div class="text-5xl fontbold my-4">
+        {{section.settings.title}}
+    </div>
+    <p class="text-base md:text-xl leading-normal">
+        {{section.settings.subtext_title}}
+    </p>
+    <div class="py-4">
+        {% if section.settings.button_url == blank %}
+                {% assign shop_url = shop.secure_url %}
+            {% else %}
+                
+        {% endif %}
+        <a class="px-4 inline py-2 text-base font-medium bg-green-500 rounded-md text-white" href="{{shop_url}}">{{section.settings.back_home}}</a>
+    </div>
+</div>
+
+
+{% schema %}
+    {
+        "name": "Template 404",
+        "tag": "section",
+        "class": "flex items-center justify-center text-center p-7 h-screen",
+        "settings" : [
+            {
+                "type": "text",
+                "id": "title",
+                "default": "404",
+                "label": "404 Heading Title"
+            },
+            {
+                "type": "text",
+                "id": "subtext_title",
+                "default": "Deo thay dau",
+                "label": "404 subtext"
+
+            },
+            {
+                "type": "text",
+                "id": "back_home",
+                "default": "Back to homepage",
+                "label": "Button Label" 
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            }
+        ]
+    }
+{% endschema %}
